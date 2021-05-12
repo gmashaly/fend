@@ -3,7 +3,6 @@ var Request = require("request");
 const express = require('express')
 const bodyParser = require('body-parser');
 
-const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,5 +50,9 @@ app.post('/sentimentAnalysis', function (req, res) {
     
 })
 
+app.get("/test", async (req, res) => {
+    res.json({ message: "pass!" });
+  });
 
+module.exports = app
 

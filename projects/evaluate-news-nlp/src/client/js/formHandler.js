@@ -1,11 +1,13 @@
 function handleSubmit(event) {
     event.preventDefault()
 
-    // check what text was put into the form field
     let formText = document.getElementById('name').value
-    //Client.checkForName(formText)
-
-    //console.log("::: Form Submitted :::")
+    
+    let validURL = Client.validURL(formText)
+    if (! validURL) {
+        alert("Not valid URL");
+        return false;
+    }
 
     async function postURL(url='', data={}){
         const response = await fetch(url, {
@@ -19,8 +21,6 @@ function handleSubmit(event) {
         });
         return response.json();
     }
-
-
 
     postURL('http://localhost:8080/sentimentAnalysis',{
         "txt": formText

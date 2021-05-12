@@ -1,10 +1,12 @@
-var path = require('path')
-var Request = require("request");
-const express = require('express')
+const path = require('path');
+const Request = require("request");
+const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 const app = express()
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

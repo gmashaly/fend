@@ -17,7 +17,7 @@ describe('test the endpoint', () => {
     const res = await request.post('/sentimentAnalysis')
       .send({
         "key": process.env.API_KEY,
-        "txt": "www.goole.com",
+        "txt": "https://edition.cnn.com/2021/05/12/football/mo-salah-tweet-riyad-mahrez-benjamin-mendy-spt-intl/index.html",
         "lang": "en"
       });
     expect(res.statusCode).toEqual(200)

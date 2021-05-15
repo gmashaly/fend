@@ -27,8 +27,17 @@ function handleSubmit(event) {
     })
     //.then(res => res.json())
     .then(function(res) {
-        document.getElementById('results').innerHTML = JSON.stringify(res)
+        //document.getElementById('results').innerHTML = JSON.stringify(res)
+        document.getElementById('score_tag').innerHTML = `Score_tag : ${res.score_tag} <br>`
+        document.getElementById('agreement').innerHTML = `Agreement : ${res.agreement} <br>`
+        document.getElementById('subjectivity').innerHTML = `Subjectivity : ${res.subjectivity} <br>`
+        document.getElementById('confidence').innerHTML = `Confidence : ${res.confidence} <br>`
+        document.getElementById('irony').innerHTML = `Irony : ${res.irony} <br>`
+        
     })
+    .catch(() => {
+        alert(`some thing went wrong, please try again`);
+    });
 }
 
 
